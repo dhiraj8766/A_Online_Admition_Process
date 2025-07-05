@@ -1,0 +1,122 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration - Online Admission System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f6f9;
+            padding-top: 10px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2e86de;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .gender-group {
+            margin-top: 10px;
+        }
+
+        .btn {
+            margin-top: 25px;
+            background-color: #2e86de;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 6px;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: #1b4f72;
+        }
+    </style>
+</head>
+<body>
+<jsp:include page="college_navbar.jsp" />
+
+<div class="container">
+    <h2>Student Registration</h2>
+
+
+
+    <form action="studentEdit?sid=${student.sid}" method="post">
+        <label for="name">Full Name:</label>
+        <input type="text" name="name" id="name" value="${student.name}" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" value="${student.email}"required>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" value="${student.password}"required>
+
+        <label>Gender:</label>
+        <div class="gender-group">
+            <input type="radio" name="gender" value="Male" ${student.gender=="Male" ? 'Checked':''} required> Male
+            <input type="radio" name="gender" value="Female" ${student.gender=="Female" ? 'Checked':''}> Female
+            <input type="radio" name="gender" value="Other" ${student.gender=="Other" ? 'Checked':''}> Other
+        </div>
+
+        <label for="course">Course:</label>
+        <select name="course" id="course" required>
+            <option value="">-- Select Course --</option>
+            <option value="B.Tech" ${student.course=="B.Tech"?'Selected':''} >B.Tech</option>
+            <option value="M.Tech" ${student.course=="M.Tech"?'Selected':''} >M.Tech</option>
+            <option value="MBA" ${student.course=="MBA"?'Selected':''} >MBA</option>
+            <option value="BCA" ${student.course=="BCA"?'Selected':''} >BCA</option>
+        </select>
+
+        <label for="number">Contact Number:</label>
+        <input type="text" name="number" id="number" value="${student.number}"required>
+
+        <label for="status">Status:</label>
+        <select name="status" id="status" required>
+            <option value="">-- Status --</option>
+            <option value="Pending" ${student.status=="Pending"?'Selected':''} >Pending</option>
+            <option value="Approved" ${student.status=="Approved"?'Selected':''} >Approved</option>
+
+        </select>
+
+        <button type="submit" class="btn" >   Modify</button>
+        <div class="msg"> ${msg} <a href="student_login" > go to login </a></div>
+
+    </form>
+</div>
+
+</body>
+</html>
