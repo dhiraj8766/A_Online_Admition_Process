@@ -70,17 +70,10 @@
             <a href="viewAllStudentsPage">View All</a>
         </div>
         <div class="card">
-            <h3>Courses</h3>
-            <a href="course_list.jsp">Manage Courses</a>
+            <h3>Enquiries</h3>
+            <a href="/AllEnquiry">Manage Enquiries</a>
         </div>
-        <div class="card">
-            <h3>Faculty</h3>
-            <a href="faculty_list.jsp">Manage Faculty</a>
-        </div>
-        <div class="card">
-            <h3>Admissions</h3>
-            <a href="admission_list.jsp">View Admissions</a>
-        </div>
+
     </div>
 </div>
 

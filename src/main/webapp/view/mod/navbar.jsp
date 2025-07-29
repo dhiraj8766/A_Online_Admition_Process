@@ -70,6 +70,6 @@
         <a href="registration">Register</a>
         <a href="student_login">Student Login</a>
         <a href="college_login">College Login</a>
-        <a href="#">About us</a>
+        <a href="/about_us">About us</a>
     </div>
 </nav>

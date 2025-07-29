@@ -29,8 +29,6 @@
     <a href="college_home">Home</a>
     <a href="/viewAllStudentsPage">Students</a>
     <a href="/AllEnquiry">Students Enquirys</a>
-    <a href="faculty_list.jsp">Faculty</a>
-    <a href="admission_list.jsp">Admissions</a>
     <div class="navbar-right">
         <a href="home">Logout</a>
     </div>

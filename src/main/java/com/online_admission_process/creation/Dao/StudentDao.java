@@ -31,6 +31,10 @@ public class StudentDao {
         List<students> studentsList = (List<students>) studentRepo.findAll();
         return studentsList;
     }
+
+
+
+
     public Optional<students> findStudentById(int id){
         Optional<students> student = studentRepo.findById(id);
         return student;
@@ -40,6 +44,10 @@ public class StudentDao {
         students student = studentRepo.findById(id).get();
         return student;
     }
+
+
+
+
 
     public students studentEditDao(int sid, students std){
         Optional<students> result = studentRepo.findById(sid);

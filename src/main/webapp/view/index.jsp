@@ -84,7 +84,7 @@
         }
 
         footer {
-            margin-top: 190px;
+            margin-top: 290px;
             background: #2e86de;
             color: #fff;
             padding: 20px 0;
@@ -106,7 +106,7 @@
 
 <div class="container">
     <div class="notice-board">
-        <strong>Notice:</strong> Admissions for 2025-26 are now open. Please register early!
+        <strong>Notice:</strong> Pending module!
     </div>
 
     <div class="cards">

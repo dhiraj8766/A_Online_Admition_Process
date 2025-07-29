@@ -113,7 +113,6 @@
         </select>
 
         <button type="submit" class="btn" >   Modify</button>
-        <div class="msg"> ${msg} <a href="student_login" > go to login </a></div>
 
     </form>
 </div>

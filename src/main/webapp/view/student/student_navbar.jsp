@@ -29,7 +29,7 @@
     <a href="/student_home?sid=${student.sid}">Home</a>
     <a href="/MyProfile?sid=${student.sid}">My Profile</a>
     <a href="/Enquiry?sid=${student.sid}">Enquiry</a>
-    <a href="/Enquiry">My Enquiry</a>
+    <a href="/myEnquiry?sid=${student.sid}">My Enquiry</a>
     <div class="navbar-right">
         <a href="home">Logout</a>
     </div>

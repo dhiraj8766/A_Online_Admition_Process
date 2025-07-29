@@ -15,6 +15,8 @@
         .container {
             max-width: 400px;
             margin: auto;
+            margin-bottom: 160px;
+            margin-top: 30px;
             background: white;
             padding: 40px;
             border-radius: 10px;
@@ -42,6 +44,7 @@
 
         .btn {
             margin-top: 25px;
+            margin-bottom: 24px;
             background-color: #2e86de;
             color: white;
             border: none;

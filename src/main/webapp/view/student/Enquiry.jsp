@@ -106,17 +106,13 @@
     <div class="form-container">
         <h2>Enquiry Form</h2>
         <form action="/saveEnquiry?sid=${student.sid}" method="post">
-            <label for="sid">SID :</label>
-            <input type="text" id="sid" name="sid" readonly="readonly" value="${student.sid}" required>
+
+
+            <label for="subject">Subject :</label>
+            <input type="text" id="subject" name="subject"  required>
 
             <label for="enquiry_message">Message:</label>
             <textarea id="enquiry_message" name="enquiry_message" placeholder="Write your message..." required></textarea>
-
-            <label for="enquiry_date">Date:</label>
-            <input type="date" id="enquiry_date" name="enquiry_date" required>
-
-            <label for="enquiry_remark">Remark:</label>
-            <input type="text" id="enquiry_remark" name="enquiry_remark" placeholder="Additional remarks">
 
             <button type="submit" class="btn">Send</button>
         </form>

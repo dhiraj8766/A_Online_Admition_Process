@@ -4,114 +4,153 @@
 <head>
     <meta charset="UTF-8">
     <title>Student Registration - Online Admission System</title>
+
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f6f9;
-            padding-top: 10px;
+        /* ----------  GLOBAL  ---------- */
+        body{
+            font-family:'Poppins',sans-serif;
+            background:linear-gradient(to right,#74ebd5,#ACB6E5);
+            margin:0;
+            padding-top:70px;           /* keeps content below the f    ixed navbar */
         }
 
-        .container {
-            max-width: 600px;
+        /* ----------  NAVBAR PLACEHOLDER  ---------- */
+        .navbar{
+            width:100%;
+            background:#333;
+            position:fixed;
+            top:0;left:0;
+            padding:15px 30px;
+            z-index:1000;
+        }
+        .navbar a{color:#fff;margin-right:20px;text-decoration:none;font-weight:500;}
+        .navbar a:hover{text-decoration:underline;}
+
+        /* ----------  CARD CONTAINER  ---------- */
+        .container{
+            max-width:640px;
             margin: auto;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            background:#fff;
+            padding:45px 50px 35px;
+            border-radius:15px;
+            box-shadow:0 6px 18px rgba(0,0,0,0.18);
         }
 
-        h2 {
-            text-align: center;
-            color: #2e86de;
-            margin-bottom: 30px;
+        h2{
+            text-align:center;
+            margin-top:0;
+            margin-bottom:30px;
+            color:#2e86de;
         }
 
-        label {
-            display: block;
-            margin: 15px 0 5px;
+        /* ----------  FORM ELEMENTS  ---------- */
+        label{
+            display:block;
+            margin:14px 0 6px;
+            font-weight:600;
+            color:#333;
         }
-
         input[type="text"],
         input[type="email"],
         input[type="password"],
-        select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
+        select{
+            width:100%;
+            padding:11px 12px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:14px;
+            box-sizing:border-box;
         }
+        input[type="radio"]{margin-right:8px;}
 
-        input[type="radio"] {
-            margin-right: 10px;
-        }
+        .gender-group{margin-top:6px;}
 
-        .gender-group {
-            margin-top: 10px;
+        /* ----------  BUTTON  ---------- */
+        .btn{
+            margin-top:28px;
+            width:100%;
+            background:#2e86de;
+            color:#fff;
+            border:none;
+            padding:13px;
+            font-size:16px;
+            font-weight:600;
+            border-radius:8px;
+            cursor:pointer;
+            transition:background 0.25s;
         }
+        .btn:hover{background:#1b4f72;}
 
-        .btn {
-            margin-top: 25px;
-            background-color: #2e86de;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 6px;
-            width: 100%;
+        /* ----------  MESSAGE / LINK  ---------- */
+        .msg{
+            margin-top:18px;
+            text-align:center;
+            font-size:14px;
+            color:#155724;
         }
-
-        .btn:hover {
-            background-color: #1b4f72;
+        .msg a{
+            color:#0d6efd;
+            text-decoration:none;
         }
+        .msg a:hover{text-decoration:underline;}
     </style>
 </head>
 <body>
+
+<!-- Your existing navbar file -->
 <jsp:include page="student_navbar.jsp" />
 
 <div class="container">
     <h2>Student Registration</h2>
 
-
-
+    <!-- When editing, action points to your controller with sid -->
     <form action="MyProfileEdit?sid=${student.sid}" method="post">
+
         <label for="name">Full Name:</label>
-        <input type="text" name="name" id="name" value="${student.name}" required>
+        <input type="text" id="name" name="name" value="${student.name}" required>
 
         <label for="email">Email:</label>
-        <input type="email" name="email" id="email" value="${student.email}"required>
+        <input type="email" id="email" name="email" value="${student.email}" required>
 
         <label for="password">Password:</label>
-        <input type="password" name="password" id="password" value="${student.password}"required>
+        <input type="password" id="password" name="password" value="${student.password}" required>
 
         <label>Gender:</label>
         <div class="gender-group">
-            <input type="radio" name="gender" value="Male" ${student.gender=="Male" ? 'Checked':''} required> Male
-            <input type="radio" name="gender" value="Female" ${student.gender=="Female" ? 'Checked':''}> Female
-            <input type="radio" name="gender" value="Other" ${student.gender=="Other" ? 'Checked':''}> Other
+            <input type="radio" name="gender" value="Male"   ${student.gender == 'Male'   ? 'checked' : ''}> Male
+            <input type="radio" name="gender" value="Female" ${student.gender == 'Female' ? 'checked' : ''}> Female
+            <input type="radio" name="gender" value="Other"  ${student.gender == 'Other'  ? 'checked' : ''}> Other
         </div>
 
         <label for="course">Course:</label>
-        <select name="course" id="course" required>
+        <select id="course" name="course" required>
             <option value="">-- Select Course --</option>
-            <option value="B.Tech" ${student.course=="B.Tech"?'Selected':''} >B.Tech</option>
-            <option value="M.Tech" ${student.course=="M.Tech"?'Selected':''} >M.Tech</option>
-            <option value="MBA" ${student.course=="MBA"?'Selected':''} >MBA</option>
-            <option value="BCA" ${student.course=="BCA"?'Selected':''} >BCA</option>
+            <option value="B.Tech" ${student.course == 'B.Tech' ? 'selected' : ''}>B.Tech</option>
+            <option value="M.Tech" ${student.course == 'M.Tech' ? 'selected' : ''}>M.Tech</option>
+            <option value="MBA"    ${student.course == 'MBA'   ? 'selected' : ''}>MBA</option>
+            <option value="BCA"    ${student.course == 'BCA'   ? 'selected' : ''}>BCA</option>
         </select>
 
         <label for="number">Contact Number:</label>
-        <input type="text" name="number" id="number" value="${student.number}"required>
+        <input type="text" id="number" name="number" value="${student.number}" required>
 
         <label for="status">Status:</label>
-        <select name="status" id="status" required>
-            <option value="Approved" ${student.status=="Approved"?'Selected':''} >Approved</option>
+        <select id="status" name="status" required>
+            <!-- Add more statuses if needed -->
+            <option value="Approved" ${student.status == 'Approved' ? 'selected' : ''}>Approved</option>
         </select>
 
-        <button type="submit" class="btn" >   Modify</button>
-        <div class="msg"> ${msg} <a href="student_login" > go to login </a></div>
+        <button type="submit" class="btn">Modify</button>
 
+        <!-- Optional status / success message -->
+        <div class="msg">
+            ${msg} <c:if test="${not empty msg}">
+            &nbsp;|&nbsp; <a href="student_login">Go to login</a>
+        </c:if>
+        </div>
     </form>
 </div>
 

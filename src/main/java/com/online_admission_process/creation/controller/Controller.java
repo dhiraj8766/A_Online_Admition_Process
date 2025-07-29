@@ -42,7 +42,7 @@ public class Controller {
 
         model.addAttribute("msg", "Registration Successful");
 
-        return "registration";
+        return "success";
     }
 
     @GetMapping("/student_login_action")
@@ -79,12 +79,18 @@ public class Controller {
         return studentsList;
     }
 
+
+
     @RequestMapping("/viewAllStudentsPage")
     public String getAllStudentsPage(Model model){
         List<students> studentsList =  studentDao.findAllStudents();
         model.addAttribute("studentsList", studentsList);
         return "college/student_list";
     }
+
+
+
+
 
     @ResponseBody
     @RequestMapping("/getById")
@@ -141,6 +147,18 @@ public class Controller {
         model.addAttribute("msg", "Student Edit Successful");
 
         return "student/student_edit";
+    }
+
+    @RequestMapping("/about_us")
+    public String about_us(){
+        return "/aboutUs";
+    }
+
+
+    public String success(){
+
+
+        return "success";
     }
 
 
